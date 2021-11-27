@@ -1,0 +1,22 @@
+{
+    "name": "aleedhillon/requests",
+    "description": "just for testing",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ali A. Dhillon",
+            "email": "aleedhx@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/helpers/global.php"
+        ]
+    }
+}
