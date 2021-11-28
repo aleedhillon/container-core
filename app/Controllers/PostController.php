@@ -8,11 +8,11 @@ use PDO;
 
 class PostController
 {
-
     protected $post;
 
     public function __construct()
     {
+        checkAuth();
         $this->post = new Post;
     }
 

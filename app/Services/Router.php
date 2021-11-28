@@ -9,36 +9,32 @@ class Router
     const GET = 'GET';
     const POST = 'POST';
 
-    protected $action = null;
-    protected $routeParameter = null;
-
-    protected function resolveUriWithMethod(string $uri, string $requestMethod)
+    protected function getAction(string $uri, string $requestMethod)
     {
+        $action = $this->routes[$uri][$requestMethod] ?? null;
 
-        $this->action = $this->routes[$requestMethod][$uri] ?? null;
+        if (!$action && isset($this->routes[$uri])) {
+            return jsonResponse([
+                'message' => 'This request method is not allowed.'
+            ], 400);
+        }
 
-        // if (isset($this->routes[$requestMethod])) {
-        //     $uriParts = explode('/', $uri);
-        //     $this->routeParameter = array_pop($uriParts);
-        //     $uri = implode('/', $uriParts);
-
-        //     $this->action = $this->routes[$requestMethod][$uri] ?? null;
-        // }
+        return $action;
     }
 
     public function resolve(string $uri, string $requestMethod)
     {
-        $this->resolveUriWithMethod($uri, $requestMethod);
+        $action = $this->getAction($uri, $requestMethod);
 
-        if ($this->action) {
+        if ($action) {
             $requestData = $this->getRequestData($requestMethod);
-            if (is_array($this->action)) {
-                $class = $this->action[0];
-                $method = $this->action[1];
+            if (is_array($action)) {
+                $class = $action[0];
+                $method = $action[1];
                 $controller = new $class();
                 return $controller->$method($requestData);
             } else {
-                return (new $this->action)($requestData);
+                return (new $action)($requestData);
             }
         } else {
             return notFound();
@@ -61,7 +57,7 @@ class Router
 
     public function register(string $method, string $route, array|string $resolver)
     {
-        $this->routes[$method][$route] = $resolver;
+        $this->routes[$route][$method] = $resolver;
 
         return $this;
     }

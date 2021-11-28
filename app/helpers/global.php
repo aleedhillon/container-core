@@ -8,7 +8,7 @@ function jsonResponse(array $data = [], int $status = 200)
 
     echo json_encode($data);
 
-    return true;
+    die;
 }
 
 function notFound()
@@ -29,4 +29,15 @@ function validationErrors(array $errors)
 function dd(...$data)
 {
     die(var_dump($data));
+}
+
+function checkAuth()
+{
+    $authEmail = $_SESSION['email'] ?? null;
+
+    if ($authEmail !== 'aleedhillon@gmail.com') {
+        return jsonResponse([
+            'message' => 'UnAuthenticated'
+        ], 401);
+    }
 }
