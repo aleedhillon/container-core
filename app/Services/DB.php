@@ -93,7 +93,7 @@ class DB
     private function formatValues(array $values)
     {
         return implode(',', array_map(function ($attribute) {
-            return is_numeric($attribute) ? $attribute : "'{$attribute}'";
+            return is_numeric($attribute) ? $attribute : $this->connection->quote($attribute);
         }, $values));
     }
 
