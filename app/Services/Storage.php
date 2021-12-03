@@ -11,4 +11,9 @@ class Storage
         $fileName = uniqid() . '.jpeg';
         return move_uploaded_file($tmpPath, realpath(self::STORAGE_DIR) . '\\' . $fileName) ? $fileName : null;
     }
+
+    public static function getFilePath(string $fileName)
+    {
+        return realpath(self::STORAGE_DIR) . '\\' . $fileName;
+    }
 }

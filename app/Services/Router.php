@@ -26,18 +26,20 @@ class Router
     {
         $action = $this->getAction($uri, $requestMethod);
 
+        $request = new Request($requestMethod);
+
         if ($action) {
-            $requestData = $this->getRequestData($requestMethod);
             if (is_array($action)) {
                 $class = $action[0];
                 $method = $action[1];
                 $controller = new $class();
-                return $controller->$method($requestData);
+                
+                echo $controller->$method($request);
             } else {
-                return (new $action)($requestData);
+                echo (new $action)($request);
             }
         } else {
-            return notFound();
+            echo notFound($request);
         }
     }
 
@@ -65,44 +67,5 @@ class Router
     public function getRoutes()
     {
         return $this->routes;
-    }
-
-    protected function getRequestData(string $httpMethod)
-    {
-        if ($httpMethod == self::POST) {
-            return $this->getPostRequestData();
-        }
-
-        if ($httpMethod == self::GET) {
-            return $this->getGetRequestData();
-        }
-
-        return [];
-    }
-
-    protected function getGetRequestData()
-    {
-        $data = [];
-        $headers = getallheaders();
-        if (isset($headers['Content-Type']) && $headers['Content-Type'] == 'application/json') {
-            $data = json_decode(file_get_contents('php://input'), true) ?? [];
-        } else {
-            $data = $_GET;
-        }
-
-        return $data;
-    }
-
-    protected function getPostRequestData()
-    {
-        $data = [];
-        $headers = getallheaders();
-        if (isset($headers['Content-Type']) && $headers['Content-Type'] == 'application/json') {
-            $data = json_decode(file_get_contents('php://input'), true) ?? [];
-        } else {
-            $data = $_POST;
-        }
-
-        return $data;
     }
 }

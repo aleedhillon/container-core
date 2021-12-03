@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\Post;
 use App\Services\DB;
+use App\Services\Request;
+use App\Services\View;
 use PDO;
 
 class PostController
@@ -12,22 +14,30 @@ class PostController
 
     public function __construct()
     {
-        checkAuth();
+        // checkAuth();
         $this->post = new Post;
     }
 
-    public function index(array $data)
+    public function index(Request $request)
     {
-        $data = $this->post->where($data);
+        $posts = $this->post->where($request->data);
 
-        return jsonResponse([
-            'data' => $data
-        ]);
+        if ($request->wantsJson()) {
+            return jsonResponse([
+                'data' => $posts
+            ]);
+        }
+
+        return view('posts/index', [
+            'posts' => $posts
+        ], true);
     }
 
-    public function store(array $data)
+    public function store(Request $request)
     {
         $erros = [];
+
+        $data = $request->getData();
 
         if (!isset($data['title'])) {
             $erros['title'][] = 'title field is required.';

@@ -2,18 +2,19 @@
 
 namespace App\Controllers;
 
+use App\Services\Request;
+use App\Services\View;
+
 class WelcomeController
 {
-    public function __invoke(array $data)
+    public function __invoke(Request $request)
     {
-        $_SESSION['count'] = ($_SESSION['count'] ?? 0) + 1;
+        if ($request->wantsJson()) {
+            return response()->json([
+                'message' => 'This is the welcome page.'
+            ]);
+        }
 
-        $username = $_COOKIE['username'] ?? null;
-        return jsonResponse([
-            'message' => 'This is the welcome page',
-            'data' => $data,
-            'count' => $_SESSION['count'],
-            'username' => $username
-        ]);
+        return view('welcome');
     }
 }

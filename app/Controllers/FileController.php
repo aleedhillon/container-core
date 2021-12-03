@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\File;
+use App\Services\Request;
 use App\Services\Storage;
 
 class FileController
@@ -14,24 +15,23 @@ class FileController
         $this->file = new File;
     }
 
-    public function get()
+    public function get(Request $request)
     {
         $files = $this->file->getAll();
 
-        // return jsonResponse($files);
-
-        $view = '';
-
-        foreach($files as $file) {
-            $view .= '<div><h3>'. $file['name'] .'</h3><img width="200" src="' . '/storage/files/' . $file['path'] . '"></div>';
+        if ($request->wantsJson()) {
+            return response()->json([
+                'data' => $files
+            ]);
         }
 
-        echo $view;
+        return view('files/index', [
+            'files' => $files
+        ], true);
     }
 
     public function store()
     {
-        return jsonResponse($_FILES);
         $tmpFile = $this->validate();
 
         $path = Storage::saveImage($tmpFile->tmp_name);
@@ -64,7 +64,7 @@ class FileController
             ]);
         }
 
-        if($file->size > 1.049e+6 * 2) {
+        if ($file->size > 1.049e+6 * 2) {
             return validationErrors([
                 'file' => [
                     'maximum allowed file size is 2MB'
