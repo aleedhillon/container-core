@@ -31,4 +31,8 @@ $router->post('/logout', [AuthController::class, 'logout']);
 $path = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'])['path'] : '';
 $method =  $_SERVER['REQUEST_METHOD'] ?? '`';
 
-$router->resolve($path, $method);
+try {
+    $router->resolve($path, $method);
+} catch (\Throwable $th) {
+    exceptionToResponse($th);
+}

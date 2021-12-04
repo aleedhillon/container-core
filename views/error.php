@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <h1 class="not-found">Not Found | 404</h1>
+    <h1 class="not-found"><?= $message ?></h1>
 </body>
 
 </html>

@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Exceptions\RouteNotFoundException;
+use Exception;
+
 class Router
 {
     protected $routes;
@@ -39,7 +42,7 @@ class Router
                 echo (new $action)($request);
             }
         } else {
-            echo notFound($request);
+            throw new RouteNotFoundException();
         }
     }
 

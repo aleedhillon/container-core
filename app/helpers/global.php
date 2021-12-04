@@ -23,7 +23,9 @@ function notFound(Request $request)
 
     http_response_code(404);
 
-    return View::make('404')->render();
+    return View::make('error', [
+        'message' => '404 | Not Found'
+    ], false, 404)->render();
 }
 
 function response(string $response = '', int $code = 200)
@@ -66,4 +68,28 @@ function view(string $view, array $data = [], bool $withLayout = false)
 function storage_path(string $file)
 {
     return '/storage/files/' . $file;
+}
+
+function exceptionToResponse(Throwable $th)
+{
+    $request = new Request('GET');
+
+    $code = $th->getCode() ? $th->getCode() : 500;
+
+    if($request->wantsJson()) {
+        echo response()->json([
+            'message' => $code . ' | ' . $th->getMessage()
+        ]);
+
+        die;
+    }
+
+    echo View::make('error', [
+        'message' => $code . ' | ' . $th->getMessage()
+    ], false, $code)->render();
+}
+
+function redirect(string $location)
+{
+    return header("Location: {$location}");
 }

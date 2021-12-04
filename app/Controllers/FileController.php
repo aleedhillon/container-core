@@ -19,6 +19,11 @@ class FileController
     {
         $files = $this->file->getAll();
 
+        header('Content-Type: image/jpeg');
+        header('Content-Disposition: attachment;filename="download.jpeg"');
+        
+        Storage::download($files[0]['path']);
+
         if ($request->wantsJson()) {
             return response()->json([
                 'data' => $files

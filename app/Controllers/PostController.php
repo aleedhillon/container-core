@@ -28,6 +28,8 @@ class PostController
             ]);
         }
 
+        return redirect('/');
+        
         return view('posts/index', [
             'posts' => $posts
         ], true);

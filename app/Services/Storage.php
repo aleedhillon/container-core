@@ -16,4 +16,9 @@ class Storage
     {
         return realpath(self::STORAGE_DIR) . '\\' . $fileName;
     }
+
+    public static function download(string $fileName)
+    {
+        return readfile(static::STORAGE_DIR . "/{$fileName}");
+    }
 }
