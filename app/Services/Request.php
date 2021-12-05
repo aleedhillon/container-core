@@ -69,4 +69,23 @@ class Request
 
         return $data;
     }
+
+    public function validate(array $fields)
+    {
+        $errors = [];
+
+        foreach ($fields as $field) {
+            if (!isset($this->data[$field])) {
+                $errors[$field] = $field . ' is required';
+            }
+        }
+
+        if (count($errors)) {
+            return validationErrors($errors);
+        }
+
+        return array_filter($this->data, function ($field, $key) use ($fields) {
+            return in_array($key, $fields);
+        }, ARRAY_FILTER_USE_BOTH);
+    }
 }

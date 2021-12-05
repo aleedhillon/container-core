@@ -1,5 +1,6 @@
 <?php
 
+use App\Services\Collection;
 use App\Services\Request;
 use App\Services\Response;
 use App\Services\View;
@@ -76,7 +77,7 @@ function exceptionToResponse(Throwable $th)
 
     $code = $th->getCode() ? $th->getCode() : 500;
 
-    if($request->wantsJson()) {
+    if ($request->wantsJson()) {
         echo response()->json([
             'message' => $code . ' | ' . $th->getMessage()
         ]);
@@ -92,4 +93,9 @@ function exceptionToResponse(Throwable $th)
 function redirect(string $location)
 {
     return header("Location: {$location}");
+}
+
+function collect(array $data = [])
+{
+    return new Collection($data);
 }

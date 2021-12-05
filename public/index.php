@@ -3,6 +3,7 @@
 use App\Controllers\AuthController;
 use App\Controllers\FileController;
 use App\Controllers\PostController;
+use App\Controllers\UserController;
 use App\Services\Router;
 use App\Controllers\WelcomeController;
 
@@ -28,8 +29,11 @@ $router->post('/files', [FileController::class, 'store']);
 $router->post('/login', [AuthController::class, 'login']);
 $router->post('/logout', [AuthController::class, 'logout']);
 
+$router->get('/users', [UserController::class, 'index']);
+$router->post('/users', [UserController::class, 'store']);
+
 $path = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'])['path'] : '';
-$method =  $_SERVER['REQUEST_METHOD'] ?? '`';
+$method =  $_SERVER['REQUEST_METHOD'] ?? '';
 
 try {
     $router->resolve($path, $method);

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\User;
 use PDO;
 use Throwable;
 
@@ -19,13 +20,20 @@ class DB
 
         try {
             $options = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false
             ];
 
             $this->connection = new PDO($dsn, $this->username, $this->password, $options);
         } catch (Throwable $th) {
             throw $th;
         }
+    }
+
+    public function RawQuery($query)
+    {
+        return $this->connection->query($query)->fetchAll(PDO::FETCH_CLASS, User::class);
     }
 
     public function getConnection()
