@@ -32,4 +32,9 @@ abstract class Model
     {
         return $this->db->whereExistsInTable($this->getTable(), $attribute, $value);
     }
+
+    public function where(string $attribute, $value)
+    {
+        return $this->db->whereAll($this->getTable(), $attribute, $value);
+    }
 }

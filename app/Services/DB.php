@@ -46,6 +46,12 @@ class DB
             ->fetch()['has'];
     }
 
+    public function whereAll(string $table, string $attribute, string $value)
+    {
+        return $this->connection->query("SELECT * FROM {$table} where {$attribute} = '{$value}'")
+            ->fetchAll();
+    }
+
     public function whereFirst(string $table, array $search, array $attributes = ['*'])
     {
         return $this->connection->query(

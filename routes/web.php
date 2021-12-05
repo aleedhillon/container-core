@@ -2,6 +2,7 @@
 
 use App\Services\Router;
 use App\Controllers\AuthController;
+use App\Controllers\CSVController;
 use App\Controllers\FileController;
 use App\Controllers\PostController;
 use App\Controllers\UserController;
@@ -22,3 +23,6 @@ $router->post('/logout', [AuthController::class, 'logout']);
 
 $router->get('/users', [UserController::class, 'index']);
 $router->post('/users', [UserController::class, 'store']);
+
+$router->get('/csvs', [CSVController::class, 'index']);
+$router->post('/csvs', [CSVController::class, 'store']);
