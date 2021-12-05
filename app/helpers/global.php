@@ -77,10 +77,17 @@ function exceptionToResponse(Throwable $th)
 
     $code = $th->getCode() ? $th->getCode() : 500;
 
+    $data['message'] = $th->getMessage();
+
+    if (env('DEBUG')) {
+        $data['code'] = $th->getCode();
+        $data['line'] = $th->getLine();
+        $data['file'] = $th->getFile();
+        $data['trace'] = $th->getTraceAsString();
+    }
+
     if ($request->wantsJson()) {
-        echo response()->json([
-            'message' => $code . ' | ' . $th->getMessage()
-        ], 500);
+        echo response()->json($data, 500);
 
         die;
     }
@@ -104,8 +111,11 @@ function loadEnv()
 {
     $file = fopen(__DIR__ . '/../../.env', 'r');
 
-    while(!feof($file)) {
-        putenv(trim(fgets($file)));
+    while (!feof($file)) {
+        $line = trim(fgets($file)); 
+        if($line) {
+            putenv($line);
+        }
     }
 
     fclose($file);

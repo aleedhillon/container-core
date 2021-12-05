@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+use App\Services\Application;
 use App\Services\Collection;
 use App\Services\DB;
 use App\Services\Request;
@@ -10,21 +12,19 @@ use PDO;
 
 class UserController
 {
-    protected $db;
+    protected User $user;
 
     public function __construct()
     {
-        $this->db = new DB;
+        $this->user = new User;
     }
 
     public function index()
     {
-        $query = 'SELECT * FROM users';
-
-        $users = collect($this->db->RawQuery($query));
+        $users = $this->user->get();
 
         return response()->json([
-            'data' => $users->toArray()
+            'data' => $users
         ]);
     }
 
@@ -45,43 +45,16 @@ class UserController
     {
         $data = $request->validate(['name', 'email']);
 
-        $connection = $this->db->getConnection();
-
-        $connection->beginTransaction();
-
-        try {
-            $emailExists = $connection->query("SELECT EXISTS (SELECT * FROM users where email = '{$data['email']}') as has")
-                ->fetch()['has'];
-
-            if ($emailExists) {
-                return validationErrors([
-                    'email' => 'Email already exists'
-                ]);
-            }
-
-            $query = 'INSERT INTO users(name, email, is_active) values(:name, :email, :is_active)';
-
-            $statement = $connection->prepare($query);
-
-            $statement->bindValue('name', $data['name']);
-            $statement->bindValue('email', $data['email']);
-            $statement->bindValue('is_active', false, PDO::PARAM_BOOL);
-
-            $statement->execute();
-
-            $userId = $connection->lastInsertId();
-
-            $user = $connection->query("SELECT * FROM users where id = {$userId} LIMIT 1")->fetch(PDO::FETCH_ASSOC);
-
-            $connection->commit();
-        } catch (\Throwable $th) {
-            if ($connection->inTransaction()) {
-                $connection->rollBack();
-            }
-            throw $th;
+        if($this->user->whereExists('email', $data['email'])) {
+            return validationErrors([
+                'email' => 'Email already exists'
+            ]);
         }
 
+        $user = $this->user->create($data);
+
         return response()->json([
+            'message' => 'User has been created successfully',
             'data' => $user
         ]);
     }

@@ -21,31 +21,25 @@ class Post
         return $this->db->select($this->table, $attributes);
     }
 
-    public function getOne(int $id, $attributes = ['*'])
+    public function find(int $id, $attributes = ['*'])
     {
         return $this->db->find($this->table, $id);
     }
 
-    public function createOne(array $data)
+    public function create(array $data)
     {
-        $post = [];
+        $postId = $this->db->insertOne($this->table, $data);
 
-        $postId = $this->db->insertOne('posts', $data);
-
-        if ($postId) {
-            $post = $this->db->find($this->table, $postId);
-        }
-
-        return $post;
+        return $this->find($postId);
     }
 
     public function where(array $search)
     {
-        return count($search) ? $this->db->where('posts', $search) : $this->db->select('posts');
+        return count($search) ? $this->db->where($this->table, $search) : $this->db->select($this->table);
     }
 
     public function whereFirst(array $search)
     {
-        return count($search) ? $this->db->whereFirst('posts', $search) : $this->db->select('posts');
+        return count($search) ? $this->db->whereFirst($this->table, $search) : $this->db->select($this->table);
     }
 }

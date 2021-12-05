@@ -25,11 +25,9 @@ class Router
         return $action;
     }
 
-    public function resolve(string $uri, string $requestMethod)
+    public function resolve(Request $request)
     {
-        $action = $this->getAction($uri, $requestMethod);
-
-        $request = new Request($requestMethod);
+        $action = $this->getAction($request->uri, $request->method);
 
         if ($action) {
             if (is_array($action)) {

@@ -6,14 +6,19 @@ class Request
 {
     public array $headers;
     public array $data;
+    public string $method;
+    public string $uri;
 
     const GET = 'GET';
     const POST = 'POST';
 
-    public function __construct(string $requestMethod)
+    public function __construct()
     {
         $this->headers = getallheaders();
-        $this->data = $this->getRequestData($requestMethod);
+
+        $this->uri = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'])['path'] : '';
+        $this->method =  $_SERVER['REQUEST_METHOD'] ?? '';
+        $this->data = $this->getRequestData();
     }
 
     public function getHeaders()
@@ -31,13 +36,13 @@ class Request
         return (isset($this->headers['Accept']) && $this->headers['Accept'] == 'application/json');
     }
 
-    protected function getRequestData(string $httpMethod)
+    protected function getRequestData()
     {
-        if ($httpMethod == self::POST) {
+        if ($this->method == self::POST) {
             return $this->getPostRequestData();
         }
 
-        if ($httpMethod == self::GET) {
+        if ($this->method == self::GET) {
             return $this->getGetRequestData();
         }
 

@@ -57,7 +57,7 @@ class PostController
             return validationErrors($erros);
         }
 
-        $postId = $this->post->createOne($data);
+        $postId = $this->post->create($data);
 
         return jsonResponse([
             'post_id' => $postId

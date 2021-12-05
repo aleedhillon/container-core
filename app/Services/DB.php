@@ -12,25 +12,7 @@ class DB
 
     public function __construct()
     {
-        $driver = env('DB_DRIVER');
-        $host = env('DB_HOST');
-        $dbname = env('DB_NAME');
-        $username = env('DB_USERNAME');
-        $password = env('DB_PASSWORD');
-
-        $dsn = "{$driver}:host={$host};dbname={$dbname};charset=UTF8";
-
-        try {
-            $options = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false
-            ];
-
-            $this->connection = new PDO($dsn, $username, $password, $options);
-        } catch (Throwable $th) {
-            throw $th;
-        }
+        $this->connection = Application::getDB();
     }
 
     public function RawQuery($query)
@@ -58,14 +40,17 @@ class DB
         ]);
     }
 
+    public function whereExistsInTable(string $table, string $attribute, string $value)
+    {
+        return $this->connection->query("SELECT EXISTS (SELECT * FROM {$table} where {$attribute} = '{$value}') as has")
+            ->fetch()['has'];
+    }
+
     public function whereFirst(string $table, array $search, array $attributes = ['*'])
     {
-        $whereQuery = $this->formatWhereCluases($search);
-
-        $queryStatement = "SELECT {$this->formatAttributes($attributes)} FROM `{$table}` WHERE {$whereQuery} LIMIT 1";
-        $query = $this->connection->query($queryStatement);
-
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        return $this->connection->query(
+            "SELECT {$this->formatAttributes($attributes)} FROM `{$table}` WHERE {$this->formatWhereCluases($search)} LIMIT 1"
+        )->fetch();
     }
 
     public function where(string $table, array $search, array $attributes = ['*'])

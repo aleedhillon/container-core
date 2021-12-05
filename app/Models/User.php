@@ -2,6 +2,12 @@
 
 namespace App\Models;
 
-class User
+use App\Services\Model;
+
+class User extends Model
 {
+    public function getTable(): string
+    {
+        return 'users';
+    }
 }
