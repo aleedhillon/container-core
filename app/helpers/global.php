@@ -80,7 +80,7 @@ function exceptionToResponse(Throwable $th)
     if ($request->wantsJson()) {
         echo response()->json([
             'message' => $code . ' | ' . $th->getMessage()
-        ]);
+        ], 500);
 
         die;
     }
@@ -98,4 +98,20 @@ function redirect(string $location)
 function collect(array $data = [])
 {
     return new Collection($data);
+}
+
+function loadEnv()
+{
+    $file = fopen(__DIR__ . '/../../.env', 'r');
+
+    while(!feof($file)) {
+        putenv(trim(fgets($file)));
+    }
+
+    fclose($file);
+}
+
+function env(string $key, string $default = null)
+{
+    return getenv($key) ?? $default;
 }

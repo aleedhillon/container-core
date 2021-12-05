@@ -8,15 +8,17 @@ use Throwable;
 
 class DB
 {
-    protected $host = 'localhost';
-    protected $dbname = 'custom_php';
-    protected $username = 'root';
-    protected $password = 'toor';
     protected $connection;
 
     public function __construct()
     {
-        $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset=UTF8";
+        $driver = env('DB_DRIVER');
+        $host = env('DB_HOST');
+        $dbname = env('DB_NAME');
+        $username = env('DB_USERNAME');
+        $password = env('DB_PASSWORD');
+
+        $dsn = "{$driver}:host={$host};dbname={$dbname};charset=UTF8";
 
         try {
             $options = [
@@ -25,7 +27,7 @@ class DB
                 PDO::ATTR_EMULATE_PREPARES => false
             ];
 
-            $this->connection = new PDO($dsn, $this->username, $this->password, $options);
+            $this->connection = new PDO($dsn, $username, $password, $options);
         } catch (Throwable $th) {
             throw $th;
         }
@@ -33,7 +35,7 @@ class DB
 
     public function RawQuery($query)
     {
-        return $this->connection->query($query)->fetchAll(PDO::FETCH_CLASS, User::class);
+        return $this->connection->query($query)->fetchAll();
     }
 
     public function getConnection()
@@ -78,15 +80,13 @@ class DB
 
     public function insertOne(string $table, array $data)
     {
-        $attributes = $this->formatAttributes(array_keys($data));
+        $keys = array_keys($data);
 
-        $values = $this->formatValues(array_values($data));
-
-        $queryStatement = "INSERT INTO {$table} ({$attributes}) values ({$values})";
+        $queryStatement = "INSERT INTO {$table} ({$this->formatAttributes($keys)}) values ({$this->formatValuePlaceholders($keys)})";
 
         $query = $this->connection->prepare($queryStatement);
 
-        $query->execute();
+        $query->execute($data);
 
         return $this->connection->lastInsertId('id');
     }

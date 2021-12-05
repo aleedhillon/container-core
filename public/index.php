@@ -9,6 +9,8 @@ use App\Controllers\WelcomeController;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+loadEnv();
+
 session_start([
     'name' => 'php_requests_session',
     'cookie_domain' => 'php-requests.test',
