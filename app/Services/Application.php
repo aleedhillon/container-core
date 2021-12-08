@@ -25,7 +25,7 @@ class Application
     public function run()
     {
         try {
-            $this->router->resolve(new Request);
+            echo $this->router->resolve(new Request);
         } catch (Throwable $th) {
             exceptionToResponse($th);
         }

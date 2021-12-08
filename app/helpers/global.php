@@ -125,3 +125,16 @@ function env(string $key, string $default = null)
 {
     return getenv($key) ?? $default;
 }
+
+function nameAndAge()
+{
+    $name = 'Alee Dhillon';
+    $age = 29;
+
+    return [$name, $age];
+}
+
+function createClass()
+{
+    return new class() {};
+}

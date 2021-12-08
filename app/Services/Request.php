@@ -4,7 +4,7 @@ namespace App\Services;
 
 class Request
 {
-    public array $headers;
+    public array $headers = [];
     public array $data;
     public string $method;
     public string $uri;
@@ -14,7 +14,9 @@ class Request
 
     public function __construct()
     {
-        $this->headers = getallheaders();
+        if (function_exists('getallheaders')) {
+            $this->headers = getallheaders();
+        }
 
         $this->uri = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'])['path'] : '';
         $this->method =  $_SERVER['REQUEST_METHOD'] ?? '';

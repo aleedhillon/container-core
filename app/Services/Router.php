@@ -7,12 +7,12 @@ use Exception;
 
 class Router
 {
-    protected $routes;
+    protected array $routes = [];
 
     const GET = 'GET';
     const POST = 'POST';
 
-    protected function getAction(string $uri, string $requestMethod)
+    public function getAction(string $uri, string $requestMethod)
     {
         $action = $this->routes[$uri][$requestMethod] ?? null;
 
@@ -29,19 +29,31 @@ class Router
     {
         $action = $this->getAction($request->uri, $request->method);
 
-        if ($action) {
-            if (is_array($action)) {
-                $class = $action[0];
-                $method = $action[1];
-                $controller = new $class();
-                
-                echo $controller->$method($request);
-            } else {
-                echo (new $action)($request);
-            }
-        } else {
-            throw new RouteNotFoundException();
+        if (!$action) {
+            throw new RouteNotFoundException('Route is incorrect');
         }
+
+        if (is_array($action)) {
+            [$class, $method] = $action;
+
+            if (class_exists($class)) {
+                $class = new $class();
+
+                if (method_exists($class, $method)) {
+                    return call_user_func_array([$class, $method], [$request]);
+                }
+            }
+        }
+
+        if (class_exists($action)) {
+            $action = new $action;
+
+            if (is_callable($action)) {
+                return $action($request);
+            }
+        }
+
+        throw new RouteNotFoundException('Route does not exists');
     }
 
     public function get(string $route, array|string $resolver)
