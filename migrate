@@ -1,0 +1,88 @@
+<?php
+
+use App\Services\Application;
+use App\Services\Router;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$db = (new Application(new Router))->getDB();
+
+$tableSql = [];
+
+$tableSql['users'] = "CREATE TABLE IF NOT EXISTS `users` (
+    `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `is_active` tinyint(1) NOT NULL DEFAULT '1',
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `email` (`email`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+$tableSql['posts'] = "CREATE TABLE IF NOT EXISTS `posts` (
+    `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `body` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+$tableSql['files'] = "CREATE TABLE IF NOT EXISTS `files` (
+    `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `path` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+$tableSql['csvs'] = "CREATE TABLE IF NOT EXISTS `csvs` (
+    `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+$tableSql['csv_data'] = "CREATE TABLE IF NOT EXISTS `csv_data` (
+    `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `csv_id` bigint unsigned NOT NULL,
+    `data` json NOT NULL,
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `csv_id` (`csv_id`),
+    CONSTRAINT `csv_data_ibfk_1` FOREIGN KEY (`csv_id`) REFERENCES `csvs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  ) ENGINE=InnoDB AUTO_INCREMENT=1151 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+$tableSql['contacts'] = "CREATE TABLE IF NOT EXISTS `contacts` (
+    `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+    `user_id` bigint unsigned NOT NULL,
+    `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+    `update_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`),
+    KEY `user_id` (`user_id`),
+    CONSTRAINT `contacts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
+
+
+foreach ($tableSql as $table => $query) {
+    try {
+        $result = $db->query("SHOW TABLES LIKE '{$table}'")->fetch();
+
+        if ($result) {
+            echo '[' . $table . ']' . ' table already exists.' . PHP_EOL;
+
+            continue;
+        }
+
+        $db->exec($query);
+        echo '[' . $table . ']' . ' table has been created successfully.' . PHP_EOL;
+    } catch (Throwable $th) {
+        echo $th->getMessage();
+    }
+}
