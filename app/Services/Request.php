@@ -21,6 +21,15 @@ class Request
         $this->uri = isset($_SERVER['REQUEST_URI']) ? parse_url($_SERVER['REQUEST_URI'])['path'] : '';
         $this->method =  $_SERVER['REQUEST_METHOD'] ?? '';
         $this->data = $this->getRequestData();
+
+        $log = new Log();
+
+        $log->info('New Request has come through.', [
+            'path' => $this->uri,
+            'method' => $this->method,
+            'data' => $this->data,
+            'headers' => $this->headers
+        ]);
     }
 
     public function getHeaders()

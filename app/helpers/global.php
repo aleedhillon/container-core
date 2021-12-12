@@ -138,3 +138,8 @@ function createClass()
 {
     return new class() {};
 }
+
+function getLogPath(string $logName)
+{
+    return realpath(__DIR__ . "\\..\\..\\storage/logs") . '\\' . $logName . '.log';
+}

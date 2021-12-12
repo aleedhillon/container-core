@@ -2,17 +2,19 @@
 
 namespace App\Services;
 
+use App\Contracts\Logger;
+
 class Log
 {
-    protected $data;
+    protected $logger;
 
-    public function __construct(mixed $data)
+    public function __construct()
     {
-        $this->data = $data;
+        $this->logger = new FileLoggingService;
     }
 
-    public function info()
+    public function info(string $message, array $data = [])
     {
-        var_dump($this->data);
+        return $this->logger->log($message, $data);
     }
 }
