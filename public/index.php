@@ -9,4 +9,4 @@ require_once __DIR__.'/../routes/web.php';
 
 $application = new Application($router);
 
-$application->run();
+$application->run($router);

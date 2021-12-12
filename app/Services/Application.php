@@ -9,14 +9,12 @@ use Throwable;
 
 class Application
 {
-    protected Router $router;
     private static PDO $db;
-    public static Container $container;
+    private static Container $container;
 
-    public function __construct(Router $router)
+    public function __construct()
     {
         $this->bootstrap();
-        $this->router = $router;
         static::$db = PDOConnection::make();
 
         static::$container = new Container;
@@ -25,9 +23,14 @@ class Application
             return new FileLoggingService;
         });
 
-        static::$container->set(Log::class, function(Container $container) {
-            return new Log($container->get(Logger::class));
-        });
+        // static::$container->set(Log::class, function(Container $container) {
+        //     return new Log($container->get(Logger::class));
+        // });
+    }
+
+    public static function getContainer()
+    {
+        return static::$container;
     }
 
     public static function getDB()
@@ -35,10 +38,10 @@ class Application
         return static::$db;
     }
 
-    public function run()
+    public function run(Router $router)
     {
         try {
-            echo $this->router->resolve(new Request);
+            echo $router->resolve(new Request);
         } catch (Throwable $th) {
             exceptionToResponse($th);
         }

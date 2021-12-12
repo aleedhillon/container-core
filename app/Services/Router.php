@@ -37,7 +37,7 @@ class Router
             [$class, $method] = $action;
 
             if (class_exists($class)) {
-                $class = new $class();
+                $class = Application::getContainer()->get($class);
 
                 if (method_exists($class, $method)) {
                     return call_user_func_array([$class, $method], [$request]);
@@ -46,7 +46,7 @@ class Router
         }
 
         if (class_exists($action)) {
-            $action = new $action;
+            $action = Application::getContainer()->get($action);
 
             if (is_callable($action)) {
                 return $action($request);

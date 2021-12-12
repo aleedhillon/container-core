@@ -22,7 +22,7 @@ class Request
         $this->method =  $_SERVER['REQUEST_METHOD'] ?? '';
         $this->data = $this->getRequestData();
 
-        $log = Application::$container->get(Log::class);
+        $log = Application::getContainer()->get(Log::class);
 
         $log->info('New Request has come through.', [
             'path' => $this->uri,

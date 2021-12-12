@@ -11,9 +11,9 @@ class Post
 
     protected $table = 'posts';
 
-    public function __construct()
+    public function __construct(DB $db)
     {
-        $this->db = new DB;
+        $this->db = $db;
     }
 
     public function getAll(array $attributes = ['*'])

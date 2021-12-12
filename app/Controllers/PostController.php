@@ -12,10 +12,9 @@ class PostController
 {
     protected $post;
 
-    public function __construct()
+    public function __construct(Post $post)
     {
-        // checkAuth();
-        $this->post = new Post;
+        $this->post = $post;
     }
 
     public function index(Request $request)
