@@ -23,5 +23,8 @@
     },
     "scripts": {
         "test": "phpunit"
-    } 
+    },
+    "require": {
+        "psr/container": "2.0.x-dev"
+    }
 }

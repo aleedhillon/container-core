@@ -8,9 +8,9 @@ class Log
 {
     protected $logger;
 
-    public function __construct()
+    public function __construct(Logger $logger)
     {
-        $this->logger = new FileLoggingService;
+        $this->logger = $logger;
     }
 
     public function info(string $message, array $data = [])
