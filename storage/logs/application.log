@@ -22,3 +22,13 @@
 {"path":"\/posts","method":"POST","data":{"title":"And another one again and again and again","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"97c2e891-9dc4-48ca-9f9c-555d132e4523","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"115","Cookie":"php_requests_session=pe5k8os0t4a1mghsabnmnrdeul"}}
 [2021-12-12 20:12:11] New Request has come through.
 {"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9c2bf383-c91e-48a6-beef-7f58a30d203f","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Cookie":"php_requests_session=pe5k8os0t4a1mghsabnmnrdeul"}}
+[2021-12-12 20:27:13] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9","Cookie":"php_requests_session=a5e6mbf3renn8ea98653ff5ngq"}}
+[2021-12-12 20:27:13] Incoming request on welcome page
+[]
+[2021-12-12 20:28:10] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9","Cookie":"php_requests_session=a5e6mbf3renn8ea98653ff5ngq"}}
+[2021-12-12 20:28:10] Incoming request on welcome page
+[]
+[2021-12-12 20:30:48] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"81862a52-5016-4fed-8512-8ef5d0b83157","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}

@@ -19,9 +19,7 @@ class Application
 
         static::$container = new Container;
 
-        static::$container->set(Logger::class, function($container) {
-            return new FileLoggingService;
-        });
+        static::$container->set(Logger::class, FileLoggingService::class);
 
         // static::$container->set(Log::class, function(Container $container) {
         //     return new Log($container->get(Logger::class));
