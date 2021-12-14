@@ -3,11 +3,16 @@
 namespace App\Services;
 
 use App\Exceptions\RouteNotFoundException;
-use Exception;
 
 class Router
 {
     protected array $routes = [];
+    protected Request $request;
+
+    public function __construct(Request $request)
+    {
+        $this->request = $request;
+    }
 
     const GET = 'GET';
     const POST = 'POST';
@@ -25,9 +30,9 @@ class Router
         return $action;
     }
 
-    public function resolve(Request $request)
+    public function resolve()
     {
-        $action = $this->getAction($request->uri, $request->method);
+        $action = $this->getAction($this->request->uri, $this->request->method);
 
         if (!$action) {
             throw new RouteNotFoundException('Route is incorrect');
@@ -37,19 +42,19 @@ class Router
             [$class, $method] = $action;
 
             if (class_exists($class)) {
-                $class = Application::getContainer()->get($class);
+                $class = resolve($class);
 
                 if (method_exists($class, $method)) {
-                    return call_user_func_array([$class, $method], [$request]);
+                    return call_user_func_array([$class, $method], []);
                 }
             }
         }
 
         if (class_exists($action)) {
-            $action = Application::getContainer()->get($action);
+            $action = resolve($action);
 
             if (is_callable($action)) {
-                return $action($request);
+                return $action();
             }
         }
 

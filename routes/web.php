@@ -8,7 +8,7 @@ use App\Controllers\PostController;
 use App\Controllers\UserController;
 use App\Controllers\WelcomeController;
 
-$router = new Router;
+$router = resolve(Router::class);
 
 $router->get('/', WelcomeController::class);
 

@@ -11,17 +11,19 @@ use PDO;
 class PostController
 {
     protected $post;
+    protected $request;
 
-    public function __construct(Post $post)
+    public function __construct(Post $post, Request $request)
     {
         $this->post = $post;
+        $this->request = $request;
     }
 
-    public function index(Request $request)
+    public function index()
     {
-        $posts = $this->post->where($request->data);
+        $posts = $this->post->where($this->request->data);
 
-        if ($request->wantsJson()) {
+        if ($this->request->wantsJson()) {
             return jsonResponse([
                 'data' => $posts
             ]);
@@ -34,11 +36,11 @@ class PostController
         ], true);
     }
 
-    public function store(Request $request)
+    public function store()
     {
         $erros = [];
 
-        $data = $request->getData();
+        $data = $this->request->getData();
 
         if (!isset($data['title'])) {
             $erros['title'][] = 'title field is required.';

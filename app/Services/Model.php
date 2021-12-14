@@ -6,9 +6,9 @@ abstract class Model
 {
     protected DB $db;
 
-    public function __construct()
+    public function __construct(DB $db)
     {
-        $this->db = new DB;
+        $this->db = $db;
     }
 
     abstract public function getTable(): string ;

@@ -9,16 +9,18 @@ use App\Services\View;
 class WelcomeController
 {
     protected Log $log;
+    protected Request $request;
 
-    public function __construct(Log $log)
+    public function __construct(Log $log, Request $request)
     {
         $this->log = $log;
+        $this->request = $request;
     }
 
-    public function __invoke(Request $request)
+    public function __invoke()
     {
         $this->log->info('Incoming request on welcome page');
-        if ($request->wantsJson()) {
+        if ($this->request->wantsJson()) {
             return response()->json([
                 'message' => 'This is the welcome page.'
             ]);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Application;
 use App\Services\Collection;
 use App\Services\Request;
 use App\Services\Response;
@@ -142,4 +143,14 @@ function createClass()
 function getLogPath(string $logName)
 {
     return realpath(__DIR__ . "\\..\\..\\storage/logs") . '\\' . $logName . '.log';
+}
+
+function getAllServiceProviders()
+{
+    return require_once __DIR__ . '/../../config/providers.php';
+}
+
+function resolve(string $id)
+{
+    return Application::getContainer()->get($id);
 }

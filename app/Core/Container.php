@@ -13,19 +13,13 @@ use ReflectionUnionType;
 class Container implements ContainerInterface
 {
     private array $entries = [];
+    private array $resolved = [];
 
     public function get(string $id)
     {
-        if ($this->has($id)) {
-            $entry = $this->entries[$id];
-
-            if (is_callable($entry)) {
-                return $entry($this);
-            }
-
-            $id = $entry;
+        if($this->isShared($id)) {
+            return $this->getShared($id);
         }
-
         return $this->resolve($id);
     }
 
@@ -34,13 +28,47 @@ class Container implements ContainerInterface
         return isset($this->entries[$id]);
     }
 
-    public function set(string $id, callable|string $concrete)
+    private function set(string $id, callable|string $concrete, bool $shared = false)
     {
-        $this->entries[$id] = $concrete;
+        $this->entries[$id] = compact('concrete', 'shared');
+    }
+
+    private function isShared(string $id)
+    {
+        return $this->has($id) && $this->entries[$id]['shared'];
+    }
+
+    private function getShared(string $id)
+    {
+        if(!isset($this->resolved[$id])) {
+            $this->resolved[$id] = $this->resolve($id);
+        }
+
+        return $this->resolved[$id];
+    }
+
+    public function bind(string $id, callable|string $concrete)
+    {
+        $this->set($id, $concrete, false);
+    }
+
+    public function singleton(string $id, callable|string $concrete)
+    {
+        $this->set($id, $concrete, true);
     }
 
     protected function resolve(string $id)
     {
+        if ($this->has($id)) {
+            $entry = $this->entries[$id]['concrete'];
+
+            if (is_callable($entry)) {
+                return $entry($this);
+            }
+
+            $id = $entry;
+        }
+
         $reflectionClass = new ReflectionClass($id);
 
         if (!$reflectionClass->isInstantiable()) {

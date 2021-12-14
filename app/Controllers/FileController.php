@@ -9,13 +9,15 @@ use App\Services\Storage;
 class FileController
 {
     protected $file;
+    protected $request;
 
-    public function __construct()
+    public function __construct(Request $request, File $file)
     {
-        $this->file = new File;
+        $this->file = $file;
+        $this->request = $request;
     }
 
-    public function get(Request $request)
+    public function get()
     {
         $files = $this->file->getAll();
 
@@ -24,7 +26,7 @@ class FileController
         
         Storage::download($files[0]['path']);
 
-        if ($request->wantsJson()) {
+        if ($this->request->wantsJson()) {
             return response()->json([
                 'data' => $files
             ]);

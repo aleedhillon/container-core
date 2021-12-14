@@ -2,21 +2,24 @@
 
 namespace App\Controllers;
 
+use PDO;
 use App\Models\User;
-use App\Services\Application;
-use App\Services\Collection;
 use App\Services\DB;
 use App\Services\Request;
-use Exception;
-use PDO;
+use App\Services\Collection;
+use App\Services\Application;
 
 class UserController
 {
     protected User $user;
+    protected Request $request;
+    protected DB $db;
 
-    public function __construct()
+    public function __construct(Request $request, User $user, DB $db)
     {
-        $this->user = new User;
+        $this->user = $user;
+        $this->request = $request;
+        $this->db = $db;
     }
 
     public function index()
@@ -41,11 +44,11 @@ class UserController
         ]);
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $data = $request->validate(['name', 'email']);
+        $data = $this->request->validate(['name', 'email']);
 
-        if($this->user->whereExists('email', $data['email'])) {
+        if ($this->user->whereExists('email', $data['email'])) {
             return validationErrors([
                 'email' => 'Email already exists'
             ]);

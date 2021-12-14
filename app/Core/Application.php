@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Services;
+namespace App\Core;
 
-use App\Contracts\Logger;
-use App\Core\Container;
 use PDO;
 use Throwable;
+use App\Core\Container;
+use App\Services\Router;
 
 class Application
 {
@@ -15,11 +15,13 @@ class Application
     public function __construct()
     {
         $this->bootstrap();
-        static::$db = PDOConnection::make();
 
-        static::$container = new Container;
 
-        static::$container->set(Logger::class, FileLoggingService::class);
+        // static::$db = PDOConnection::make();
+
+
+
+        // static::$container->bind(Logger::class, FileLoggingService::class);
 
         // static::$container->set(Log::class, function(Container $container) {
         //     return new Log($container->get(Logger::class));
@@ -36,11 +38,12 @@ class Application
         return static::$db;
     }
 
-    public function run(Router $router)
+    public function run()
     {
         try {
-            echo $router->resolve(new Request);
+            echo resolve(Router::class)->resolve();
         } catch (Throwable $th) {
+            throw $th;
             exceptionToResponse($th);
         }
     }
@@ -49,12 +52,10 @@ class Application
     {
         loadEnv();
 
-        session_start([
-            'name' => 'php_requests_session',
-            'cookie_domain' => 'php-requests.test',
-            'cookie_httponly' => true,
-            'cookie_samesite' => true,
-            'cookie_lifetime' => 120
-        ]);
+        static::$container = new Container;
+
+        foreach (getAllServiceProviders() as $serviceProvider) {
+            (new $serviceProvider)->register(static::$container);
+        }
     }
 }

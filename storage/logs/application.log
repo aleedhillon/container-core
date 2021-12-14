@@ -1,34 +1,106 @@
-[2021-12-12 19:47:27] New Request has come through.
-{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9","Cookie":"php_requests_session=mhurbd1mgbs7tgjgu5b0q4emks"}}
-[2021-12-12 19:47:27] Incoming request on welcome page
+[2021-12-13 20:37:03] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9","Cookie":"php_requests_session=785mo0jgf7e10eu7ga5o6i6mq5"}}
+[2021-12-13 20:37:03] Incoming request on welcome page
 []
-[2021-12-12 19:48:22] New Request has come through.
-{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"cd68a187-a3f5-4063-95a5-b0e35f5d50e1","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
-[2021-12-12 19:53:12] New Request has come through.
+[2021-12-14 19:44:08] New Request has come through.
 {"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
-[2021-12-12 19:53:12] Incoming request on welcome page
+[2021-12-14 19:44:09] New Request has come through.
+{"path":"\/favicon.ico","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"image\/avif,image\/webp,image\/apng,image\/svg+xml,image\/*,*\/*;q=0.8","Referer":"http:\/\/php-requests.test\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:49:54] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:49:54] New Request has come through.
+{"path":"\/favicon.ico","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"image\/avif,image\/webp,image\/apng,image\/svg+xml,image\/*,*\/*;q=0.8","Referer":"http:\/\/php-requests.test\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:51:38] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:51:38] New Request has come through.
+{"path":"\/favicon.ico","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"image\/avif,image\/webp,image\/apng,image\/svg+xml,image\/*,*\/*;q=0.8","Referer":"http:\/\/php-requests.test\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:52:39] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:52:39] Incoming request on welcome page
 []
-[2021-12-12 19:53:15] New Request has come through.
-{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"1caa60f6-57d4-4ce9-acc4-c327f05514de","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Cookie":"php_requests_session=re2il4prtdh8ns9unrveo9chcd"}}
-[2021-12-12 20:02:58] New Request has come through.
-{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"8b76cb97-0f3b-46cc-8ad7-dae9fb96001e","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
-[2021-12-12 20:11:39] New Request has come through.
-{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"cea15f7c-115b-40ed-8e36-48d8c5519f22","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
-[2021-12-12 20:11:52] New Request has come through.
-{"path":"\/posts","method":"POST","data":{"title":"And another one again and again","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"5fdf08e1-b344-4681-9731-ce74cb582363","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"105","Cookie":"php_requests_session=pe5k8os0t4a1mghsabnmnrdeul"}}
-[2021-12-12 20:11:54] New Request has come through.
-{"path":"\/posts","method":"POST","data":{"title":"And another one again and again","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"e05f2dc3-1231-41f9-8992-382a7574dfe9","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"105","Cookie":"php_requests_session=pe5k8os0t4a1mghsabnmnrdeul"}}
-[2021-12-12 20:12:02] New Request has come through.
-{"path":"\/posts","method":"POST","data":{"title":"And another one again and again and again","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"97c2e891-9dc4-48ca-9f9c-555d132e4523","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"115","Cookie":"php_requests_session=pe5k8os0t4a1mghsabnmnrdeul"}}
-[2021-12-12 20:12:11] New Request has come through.
-{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9c2bf383-c91e-48a6-beef-7f58a30d203f","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Cookie":"php_requests_session=pe5k8os0t4a1mghsabnmnrdeul"}}
-[2021-12-12 20:27:13] New Request has come through.
-{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9","Cookie":"php_requests_session=a5e6mbf3renn8ea98653ff5ngq"}}
-[2021-12-12 20:27:13] Incoming request on welcome page
+[2021-12-14 19:52:39] New Request has come through.
+{"path":"\/favicon.ico","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"image\/avif,image\/webp,image\/apng,image\/svg+xml,image\/*,*\/*;q=0.8","Referer":"http:\/\/php-requests.test\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:53:19] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:53:19] Incoming request on welcome page
 []
-[2021-12-12 20:28:10] New Request has come through.
-{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9","Cookie":"php_requests_session=a5e6mbf3renn8ea98653ff5ngq"}}
-[2021-12-12 20:28:10] Incoming request on welcome page
-[]
-[2021-12-12 20:30:48] New Request has come through.
-{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"81862a52-5016-4fed-8512-8ef5d0b83157","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 19:53:19] New Request has come through.
+{"path":"\/favicon.ico","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"image\/avif,image\/webp,image\/apng,image\/svg+xml,image\/*,*\/*;q=0.8","Referer":"http:\/\/php-requests.test\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 19:53:58] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"fa286b3d-0990-4e02-ae2c-7881f73ccd4a","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:00:19] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"bf8dcda0-6142-430d-80b7-dd2f464223d5","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:01:39] New Request has come through.
+{"path":"\/posts","method":"POST","data":{"title":"And another one again and again and again","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"c92e2be2-b903-42e6-b0ef-0ee23b3472a3","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"115"}}
+[2021-12-14 20:02:13] New Request has come through.
+{"path":"\/posts","method":"POST","data":{"title":"And another one again and again and again","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"0977e740-1bf4-4440-ad35-76f3a785c9e0","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"115"}}
+[2021-12-14 20:02:25] New Request has come through.
+{"path":"\/posts","method":"POST","data":{"title":"With DI container","body":"This is the sample body of the post."},"headers":{"Content-Type":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Accept":"*\/*","Postman-Token":"9a8ae85d-ffa0-4c40-b304-4f10fc97e355","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"91"}}
+[2021-12-14 20:02:30] New Request has come through.
+{"path":"\/users","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"8752ff9d-dfb0-40d9-be53-00e2b9582bc2","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:02:34] New Request has come through.
+{"path":"\/users","method":"POST","data":{"name":"Test user","email":"transagainand@gmail.com"},"headers":{"Content-Type":"application\/json","Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"cb0ce03f-bb23-4054-80e5-10b767a0ed7b","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"70"}}
+[2021-12-14 20:05:19] New Request has come through.
+{"path":"\/users","method":"POST","data":{"name":"Test user","email":"transagainand@gmail.com"},"headers":{"Content-Type":"application\/json","Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"c48e9dfa-91dd-46dc-b5d2-4eec2c6ef6c0","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"70"}}
+[2021-12-14 20:05:23] New Request has come through.
+{"path":"\/users","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"5682ab4f-5db4-40be-919f-3a6e1bf7e16d","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:05:50] New Request has come through.
+{"path":"\/users","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"ea4d7d84-bd62-4bb1-88c3-e1cf1ca57be4","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:06:34] New Request has come through.
+{"path":"\/users","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"cb688409-eb0d-452e-8ae2-926cd24a6e6f","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:06:40] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9cac5a11-9555-46d2-9090-1f696f7380df","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:06:46] New Request has come through.
+{"path":"\/users","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"92ebb26b-d07e-498b-81a6-213b4392b57f","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:06:54] New Request has come through.
+{"path":"\/files","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"86c6b256-f1ad-4aad-9c1d-08dba9670911","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:07:00] New Request has come through.
+{"path":"\/files","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"93787b5a-9d46-470e-aa8a-85b3d35a17b7","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:07:05] New Request has come through.
+{"path":"\/files","method":"POST","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"b4e85a5e-082b-4646-9e5c-f454768c0291","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive","Content-Length":"0"}}
+[2021-12-14 20:07:16] New Request has come through.
+{"path":"\/users","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"b2da677b-d429-4fd2-810a-52b06d0cd461","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:16:12] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9ea1f64b-48e8-4bdf-baf2-c5d85a917fdd","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:40:18] New Request has come through.
+{"path":"\/","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","Cache-Control":"max-age=0","Upgrade-Insecure-Requests":"1","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.9","Referer":"http:\/\/localhost\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 20:40:18] New Request has come through.
+{"path":"\/favicon.ico","method":"GET","data":[],"headers":{"Host":"php-requests.test","Connection":"keep-alive","User-Agent":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/96.0.4664.93 Safari\/537.36","Accept":"image\/avif,image\/webp,image\/apng,image\/svg+xml,image\/*,*\/*;q=0.8","Referer":"http:\/\/php-requests.test\/","Accept-Encoding":"gzip, deflate","Accept-Language":"en-US,en;q=0.9"}}
+[2021-12-14 20:40:38] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9993672c-d724-4f8e-b49b-d73a8ca9eeeb","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:40:56] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"448e1b9a-9146-4e99-bd11-a316d789329a","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:41:09] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9c3e8dd1-7017-42a5-9e6d-831d622fa510","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:42:48] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"bafecb6b-06f2-42dd-854f-0a8c350aeb8b","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:44:37] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"04eff365-3e64-4988-bb90-a65bfe7d67db","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:46:01] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"9e581e07-b765-4ceb-a3b0-f8ae101c650a","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:48:11] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"50cf601b-647f-4140-b725-8e0a08b6f2dd","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:48:21] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"732cc352-2431-42dc-a732-d5c0b84f5e9e","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:49:20] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"0d7b845b-0189-42e2-a75b-a08018cb9e73","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:50:02] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"7c7aa260-c34d-432a-b0a2-67d4268e7e05","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:50:48] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"758d2bf6-df94-469e-8f6b-f9ceef4ce185","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:51:00] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"e006cf2d-6322-456c-bb7c-f377d800b34d","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:53:36] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"0eaa9e84-2bab-4441-9625-69e116c529e4","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:53:50] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"78e9fe2d-b3c0-40a9-8e3c-f553b5623a88","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:55:16] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"38dd85e1-c87e-485c-bd84-bd2929b736cc","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:56:32] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"7c2db3df-6237-477a-b4b5-5bf11673ee1d","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:57:12] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"3968fcd7-b3bc-4e42-9196-8a1c4ca28bf8","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:57:41] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"0d1e5d17-0de4-41ab-8cc8-118ba45227b5","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
+[2021-12-14 20:59:51] New Request has come through.
+{"path":"\/posts","method":"GET","data":[],"headers":{"Accept":"application\/json","User-Agent":"PostmanRuntime\/7.28.4","Postman-Token":"4066892d-06b8-4ee8-af30-c0ff0ef9bcf8","Host":"php-requests.test","Accept-Encoding":"gzip, deflate, br","Connection":"keep-alive"}}
