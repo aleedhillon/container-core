@@ -19,6 +19,20 @@ class Router
 
     public function getAction(string $uri, string $requestMethod)
     {
+        $parameter = null;
+
+        $parts = explode('/', $uri);
+        if(isset($parts[2]) && $parts[2] !== '') {
+            $parameter = $parts[2];
+        }
+
+        $uri = '/'.$parts[1];
+
+        if(isset($this->routes[$uri][$requestMethod])) {
+            dd($this->routes[$uri][$requestMethod]);
+        }
+
+        dd('not good');
         $action = $this->routes[$uri][$requestMethod] ?? null;
 
         if (!$action && isset($this->routes[$uri])) {
@@ -77,7 +91,22 @@ class Router
 
     public function register(string $method, string $route, array|string $resolver)
     {
-        $this->routes[$route][$method] = $resolver;
+        $parts = explode('{', $route);
+        $route = rtrim($parts[0], '/');
+        $route = $route === '' ? '/' : $route;
+
+        $this->routes[$route][$method] = [
+            'action' => $resolver,
+            'parameter' => null
+        ];
+
+        if (isset($parts[1])) {
+            $parameter = explode('}', $parts[1])[0];
+
+            if ($parameter !== '') {
+                $this->routes[$route]['parameter'] = $parameter;
+            }
+        }
 
         return $this;
     }

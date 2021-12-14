@@ -48,7 +48,7 @@ function validationErrors(array $errors)
 
 function dd(...$data)
 {
-    die(var_dump($data));
+    die(var_dump(...$data));
 }
 
 function checkAuth()

@@ -14,6 +14,7 @@ $router->get('/', WelcomeController::class);
 
 $router->get('/posts', [PostController::class, 'index']);
 $router->post('/posts', [PostController::class, 'store']);
+$router->get('/posts/{post}', [PostController::class, 'show']);
 
 $router->get('/files', [FileController::class, 'get']);
 $router->post('/files', [FileController::class, 'store']);
